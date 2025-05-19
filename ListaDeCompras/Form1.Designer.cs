@@ -51,6 +51,8 @@
             this.txbCadastrarItem.Name = "txbCadastrarItem";
             this.txbCadastrarItem.Size = new System.Drawing.Size(345, 48);
             this.txbCadastrarItem.TabIndex = 3;
+            this.txbCadastrarItem.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txbCadastrarItem_KeyDown);
+            this.txbCadastrarItem.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbCadastrarItem_KeyPress);
             // 
             // btnLimpar
             // 

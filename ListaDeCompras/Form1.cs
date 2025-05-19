@@ -30,7 +30,7 @@ namespace ListaDeCompras
                 libListaCompras.Items.Add(txbCadastrarItem.Text);
                 txbCadastrarItem.Clear();
             }
-           
+
         }
 
         private void libListaCompras_DoubleClick(object sender, EventArgs e)
@@ -39,17 +39,17 @@ namespace ListaDeCompras
 
             {   //Exibe um icone de menssagem perguntando se deseja excluir
                 DialogResult rst = MessageBox.Show("Tem certeza que deseja excluir o item", "Excluir",
-                  MessageBoxButtons.YesNo, MessageBoxIcon.Question );
+                  MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                if(rst == DialogResult.Yes)
-                {    
+                if (rst == DialogResult.Yes)
+                {
                     //Remove os items da lista 
                     libListaCompras.Items.RemoveAt(libListaCompras.SelectedIndex);
                 }
-                else {libListaCompras.SelectedIndex = -1;}
+                else { libListaCompras.SelectedIndex = -1; }
 
             }
-       
+
 
         }
 
@@ -62,19 +62,36 @@ namespace ListaDeCompras
 
 
 
+        private void txbCadastrarItem_KeyDown(object sender, KeyEventArgs e)
+        {
+            //Verifica se a tecla enter foi pressionada
+            if (e.KeyCode == Keys.Enter)
+            {
+                //Simula o clique da tecla enter no botão adicionar
+                btnAdicionar.PerformClick();
 
+            }
 
+         }
 
-
-
-
-
-
-
-
-        private void libListaCompras_SelectedIndexChanged(object sender, EventArgs e)
+ private void txbCadastrarItem_KeyPress(object sender, KeyPressEventArgs e)
         {
 
+            // Verifica se o caractere é um número
+            if (char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // Impede de colocar caracter
+            }
+
+
+
         }
+
+
+
+
+       
+
+       
     }
 }
